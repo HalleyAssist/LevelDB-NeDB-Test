@@ -1,0 +1,28 @@
+{
+    "name": "LevelDB-NeDB Test",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+      "test": "node ./index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+      "eslint": "^8.36.0",
+      "eslint-config-standard": "^17.0.0",
+      "eslint-plugin-import": "^2.27.5",
+      "eslint-plugin-n": "^15.6.1",
+      "eslint-plugin-promise": "^6.1.1"
+    },
+    "dependencies": {
+      "assert": "^2.0.0",
+      "encoding-down": "^7.1.0",
+      "level": "^8.0.0",
+      "leveldown": "^6.1.1",
+      "levelup": "^5.1.1",
+      "nedb": "git+https://github.com/HalleyAssist/nedb.git",
+      "nedb-promise": "git+https://github.com/HalleyAssist/nedb-promise.git"
+    }
+  }
+  
