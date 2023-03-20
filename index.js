@@ -20,7 +20,7 @@ class leveldbDatabase {
         // Remove previous database
         await fsPromises.rm('./leveldb_db', {force: true, recursive: true}).catch()
         await fsPromises.mkdir('./leveldb_db')
-    
+
         // Create new database
         this._db = levelup(encode(leveldown('./leveldb_db/leveldb_db'), { valueEncoding: 'json' }))
         for (let i = 0; i < 200; i++){
@@ -50,7 +50,7 @@ class nedbDatabase {
         // Remove previous database
         await fsPromises.rm('./nedb_db', {force: true, recursive: true}).catch()
         await fsPromises.mkdir('./nedb_db')
-    
+
         // Create new database
         this._db = datastore({
             filename: './nedb_db/db.json',
@@ -63,13 +63,14 @@ class nedbDatabase {
     }
     async addItem(key, value){
         const data = {
-            [key]: value
+            _id: key,
+            value
         }
         await this._db.insert(data)
     }
     async findItem(key){
-        const item = await this._db.findOne({ [key]: {$exists: true }})
-        return item[key]
+        const item = await this._db.findOne({ _id: key })
+        return item.value
     }
 }
 
